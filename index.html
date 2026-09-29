@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-dollar-sign"></i>
+        </div>
+        <span>Expense<br>Tracker</span>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-link active" data-page="dashboard">
+          <i class="fa-solid fa-house"></i>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-link" data-page="transactions">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Transactions</span>
+        </button>
+        <button class="nav-link" data-page="add">
+          <i class="fa-solid fa-circle-plus"></i>
+          <span>Add Transaction</span>
+        </button>
+        <button class="nav-link" data-page="categories">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Categories</span>
+        </button>
+        <button class="nav-link" data-page="reports">
+          <i class="fa-solid fa-chart-column"></i>
+          <span>Reports</span>
+        </button>
+        <button class="nav-link" data-page="budget">
+          <i class="fa-solid fa-piggy-bank"></i>
+          <span>Budget</span>
+        </button>
+        <button class="nav-link" data-page="settings">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="dark-mode">
+          <div class="dark-mode-info">
+            <i class="fa-solid fa-moon"></i>
+            <span>Dark Mode</span>
+          </div>
+          <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <span></span>
+          </button>
+        </div>
+
+        <div class="premium-card">
+          <div class="premium-icon">💎</div>
+          <h4>Go Premium</h4>
+          <p>Unlock more features<br>and insights</p>
+          <button>Upgrade Now</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand">
+          <button class="icon-btn mobile-menu" id="mobileMenu"><i class="fa-solid fa-bars"></i></button>
+          <strong>Expense Tracker</strong>
+        </div>
+
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Welcome back, Moniruzzaman 👋</p>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="date-picker"><i class="fa-regular fa-calendar"></i><span>May 25 - May 31, 2025</span><i class="fa-solid fa-chevron-down"></i></button>
+          <button class="icon-btn notification"><i class="fa-regular fa-bell"></i><span></span></button>
+          <div class="avatar">M</div>
+        </div>
+      </header>
+
+      <section id="dashboardPage" class="page active-page">
+
+        <div class="stats-grid">
+          <article class="stat-card balance">
+            <div class="stat-icon"><i class="fa-solid fa-wallet"></i></div>
+            <div><p>Total Balance</p><h2 id="balanceValue">$0.00</h2>
+              <small id="balanceChange">Your current balance</small>
+            </div>
+          </article>
+          <article class="stat-card income">
+            <div class="stat-icon"><i class="fa-solid fa-arrow-down"></i></div>
+            <div>
+              <p>Total Income</p>
+              <h2 id="incomeValue">$0.00</h2>
+              <small>Money received</small>
+            </div>
+          </article>
+          <article class="stat-card expense">
+            <div class="stat-icon">
+              <i class="fa-solid fa-arrow-up"></i>
+            </div>
+            <div>
+              <p>Total Expenses</p>
+              <h2 id="expenseValue">$0.00</h2>
+              <small>Money spent</small>
+            </div>
+          </article>
+          <article class="stat-card transactions-count">
+            <div class="stat-icon">
+              <i class="fa-solid fa-receipt">  </i></div>
+            <div><p>Transactions</p><h2 id="transactionCount">0</h2><small>All recorded transactions</small></div>
+          </article>
+        </div>
+
+        <div class="charts-grid">
+          <article class="card chart-card">
+            <div class="card-header">
+              <div>
+                <h3>Overview</h3>
+                <p>Income vs expenses</p>
+              </div>
+              <select id="chartPeriod">
+                <option>This Week</option>
+                <option>This Month</option>
+              </select>
+            </div>
+
+            <canvas id="overviewChart"></canvas>
+          </article>
+
+          <article class="card category-card">
+            <div class="card-header">
+              <div>
+              <h3>Expense by Category</h3>
+              <p>Where your money goes</p>
+            </div>
+          </div>
+            <div class="donut-wrap">
+              <div class="donut" id="donutChart">
+              <div>
+              <strong id="donutTotal">$0</strong>
+              <span>Total</span>
+            </div>
+          </div>
+          </div>
+            <div class="category-list" id="categoryList"></div>
+          </article>
+        </div>
+
+        <article class="card transactions-card">
+          <div class="card-header">
+            <div>
+              <h3>Recent Transactions</h3>
+              <p>Your latest money activity</p>
+            </div>
+            <button class="text-btn" data-page="transactions">View All</button>
+          </div>
+          <div id="recentTransactions"></div>
+        </article>
+      </section>
+
+      <section id="transactionsPage" class="page">
+        <article class="card">
+          <div class="page-section-header">
+            <div>
+              <h2>Transactions</h2>
+              <p>Search, filter and manage all your transactions.</p>
+            </div>
+            <button class="primary-btn" data-page="add">
+              <i class="fa-solid fa-plus"></i> 
+              Add Transaction
+            </button>
+          </div>
+          <div class="toolbar">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input id="searchInput" placeholder="Search transactions...">
+            </div>
+            <select id="typeFilter">
+              <option value="all">All Types</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+          <div id="allTransactions"></div>
+        </article>
+      </section>
+
+      <section id="addPage" class="page">
+        <article class="card form-card">
+          <div class="page-section-header">
+            
+            <div><h2>Add Transaction</h2>
+            
+              <p>Record your income or expense.</p>
+          
+          </div>
+        
+        </div>
+          <form id="transactionForm">
+            <div class="type-switch">
+              <label>
+                <input type="radio" name="type" value="expense" checked>
+                <span>Expense</span>
+              </label>
+              <label>
+                <input type="radio" name="type" value="income">
+                <span>Income</span>
+              </label>
+            </div>
+            <div class="form-grid">
+              <label>Amount
+                <input type="number" id="amount" min="0.01" step="0.01" placeholder="0.00" required>
+              </label>
+              <label>Category
+                <select id="category" required></select>
+              </label>
+              <label>Date
+                <input type="date" id="date" required>
+              </label>
+              <label>Title
+                <input type="text" id="title" placeholder="e.g. Lunch, Salary..." required>
+              </label>
+              <label class="full">Note
+                <textarea id="note" rows="4" placeholder="Write a note (optional)"></textarea>
+              </label>
+            </div>
+            <button class="primary-btn submit-btn" type="submit"><i class="fa-solid fa-plus"></i> Add Transaction</button>
+          </form>
+        </article>
+      </section>
+
+      <section id="categoriesPage" class="page">
+        <div class="page-section-header">
+          <div>
+          <h2>Categories</h2>
+          <p>Track how much you spend in each category.
+
+        </p>
+        </div>
+      </div>
+        <div class="category-grid" id="categoryCards"></div>
+      </section>
+
+      <section id="reportsPage" class="page">
+        <article class="card">
+          <div class="page-section-header">
+      <div>
+      <h2>Reports</h2>
+      <p>A simple overview of your financial activity.
+      
+          </p>
+    </div>
+  </div>
+          <div class="report-grid">
+            <div class="report-number">
+        <span>Total Income</span>
+        <strong id="reportIncome">$0.00</strong>
+      </div>
+            <div class="report-number">
+        <span>Total Expenses</span>
+        <strong id="reportExpense">$0.00</strong>
+      </div>
+            <div class="report-number">
+        <span>Savings</span>
+        <strong id="reportSavings">$0.00</strong>
+      </div>
+          </div>
+          <div class="report-bars" id="reportBars"></div>
+        </article>
+      </section>
+
+      <section id="budgetPage" class="page">
+        <article class="card">
+          <div class="page-section-header">
+            <div>
+            <h2>Monthly Budget</h2>
+            <p>Set a spending limit and monitor your progress.
+
+          </p>
+          </div>
+        </div>
+          <div class="budget-box">
+            <label>Monthly budget 
+              <div class="budget-input">
+              <span>$</span>
+              <input id="budgetInput" type="number" min="0" step="50" value="4000">
+            </div>
+            </label>
+            <div class="budget-summary">
+              <span>Spent <strong id="budgetSpent">$0</strong>
+            </span>
+              <span id="budgetPercent">0%</span>
+            </div>
+            <div class="progress">
+              <span id="budgetProgress"></span>
+            </div>
+            <p id="budgetMessage">Set a budget to keep your spending under control.</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="settingsPage" class="page">
+        <article class="card settings-card">
+          <div class="page-section-header">
+            <div>
+            <h2>Settings</h2>
+            <p>Customize your Expense Tracker.
+
+          </p>
+          </div>
+        </div>
+          <div class="setting-row">
+            <div>
+            <i class="fa-solid fa-user"></i>
+            <div>
+            <strong>Profile</strong>
+            <small>Moniruzzaman</small>
+          </div>
+        </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+          <div class="setting-row">
+            <div>
+            <i class="fa-solid fa-dollar-sign"></i>
+            <div>
+            <strong>Currency</strong>
+            <small>USD ($)</small><
+            /div>
+        </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+          <div class="setting-row">
+            <div>
+            <i class="fa-solid fa-moon"></i>
+            <div>
+            <strong>Dark Mode</strong>
+            <small>Change application appearance</small>
+          </div>
+        </div>
+          <button class="toggle" id="themeToggleSettings">
+            <span></span>
+          </button>
+        </div>
+          <div class="setting-row danger">
+            <div>
+            <i class="fa-solid fa-trash"></i>
+            <div>
+            <strong>Clear All Data</strong>
+            <small>Delete all locally saved transactions</small>
+          </div>
+        </div>
+          <button class="danger-btn" id="clearData">Clear</button>
+        </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
