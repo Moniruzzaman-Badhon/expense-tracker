@@ -1,28 +1,28 @@
-# 💰 Expense Tracker
+#  Expense Tracker
 
 A modern and responsive **Expense Tracker web application** built with **HTML, CSS, and JavaScript** to help users manage income, expenses, budgets, and financial activity through a clean dashboard interface.
 
-## 📸 Preview
+##  Preview
 
 <p align="center">
   <img src="./assets/screenshot.png" alt="Expense Tracker Preview" width="850">
 </p>
 
-## ✨ Features
+##  Features
 
-* 📊 **Financial Dashboard** — View balance, income, expenses, and transaction count
-* 💵 **Income & Expense Tracking** — Record financial transactions with details
-* 📝 **Add Transactions** — Add income or expense with title, category, amount, date, and notes
-* 🔍 **Transaction Search & Filtering** — Search and filter transactions by type and category
-* 🗂️ **Expense Categories** — Organize expenses into categories such as Food, Transport, Shopping, Bills, and Entertainment
-* 📈 **Financial Reports** — Review income, expenses, and savings information
-* 💳 **Budget Management** — Set a spending budget and monitor progress
-* 🌙 **Dark Mode** — Switch between light and dark themes
-* 💾 **Local Storage** — Save transaction and budget data directly in the browser
-* 📱 **Responsive Design** — Optimized for desktop and mobile screens
-* ⚡ **Interactive UI** — Smooth navigation, notifications, charts, and dynamic data updates
+*  **Financial Dashboard** — View balance, income, expenses, and transaction count
+*  **Income & Expense Tracking** — Record financial transactions with details
+*  **Add Transactions** — Add income or expense with title, category, amount, date, and notes
+*  **Transaction Search & Filtering** — Search and filter transactions by type and category
+*  **Expense Categories** — Organize expenses into categories such as Food, Transport, Shopping, Bills, and Entertainment
+*  **Financial Reports** — Review income, expenses, and savings information
+*  **Budget Management** — Set a spending budget and monitor progress
+*  **Dark Mode** — Switch between light and dark themes
+*  **Local Storage** — Save transaction and budget data directly in the browser
+*  **Responsive Design** — Optimized for desktop and mobile screens
+*  **Interactive UI** — Smooth navigation, notifications, charts, and dynamic data updates
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Technology           | Purpose                                   |
 | -------------------- | ----------------------------------------- |
@@ -33,7 +33,7 @@ A modern and responsive **Expense Tracker web application** built with **HTML, C
 | **Font Awesome**     | Interface icons                           |
 | **Google Fonts**     | Poppins typography                        |
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 expense-tracker/
@@ -47,13 +47,13 @@ expense-tracker/
 └── README.md
 ```
 
-## 💡 How It Works
+##  How It Works
 
 The application stores transaction and budget information using the browser's **LocalStorage API**, allowing data to remain available between browser sessions. Income and expense values are dynamically calculated to display the current balance and financial summaries.
 
 Transactions can be categorized, searched, filtered, and deleted, while the dashboard provides category breakdowns, budget progress, and financial reports.
 
-## 📚 What I Learned
+##  What I Learned
 
 Through this project, I practiced:
 
@@ -69,18 +69,18 @@ Through this project, I practiced:
 * Implementing dark mode
 * Structuring a frontend project
 
-## 🔮 Future Improvements
+##  Future Improvements
 
-* 👤 User authentication
-* ☁️ Cloud database integration
-* 📊 More advanced financial analytics
-* 📅 Custom date-range reports
-* 📥 Export transactions as CSV/PDF
-* 🔔 Budget notifications
-* 📱 Progressive Web App support
-* 🌐 Multi-currency support
+*  User authentication
+*  Cloud database integration
+*  More advanced financial analytics
+*  Custom date-range reports
+*  Export transactions as CSV/PDF
+*  Budget notifications
+*  Progressive Web App support
+*  Multi-currency support
 
-## 👨‍💻 Author
+##  Author
 
 ### Md. Moniruzzaman Badhon
 
@@ -97,8 +97,8 @@ Through this project, I practiced:
 
 ---
 
-⭐ If you found this project useful, consider giving the repository a star.
+If you found this project useful, consider giving the repository a star.
 
 <p align="center">
-  Built with ❤️ using HTML, CSS & JavaScript
+  Built with HTML, CSS & JavaScript
 </p>
