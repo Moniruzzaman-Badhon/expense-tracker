@@ -3,6 +3,7 @@
 A modern and responsive **Expense Tracker web application** built with **HTML, CSS, and JavaScript** to help users manage income, expenses, budgets, and financial activity through a clean dashboard interface.
 
 ##  Preview
+Live link: https://moniruzzaman-badhon.github.io/expense-tracker/
 
 <p align="center">
   <img src="./assets/screenshot.png" alt="Expense Tracker Preview" width="850">
